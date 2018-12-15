@@ -1,0 +1,33 @@
+package com.ibm.cio.esw.yhy.upload;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+@Controller
+public class UploadController {
+	
+	@RequestMapping(value = "/upload",method = RequestMethod.POST)
+	public @ResponseBody String upload(@RequestParam("file") MultipartFile file) {//1
+			System.out.println(file.getName());
+			//return "success";
+		
+			try {
+				FileUtils.writeByteArrayToFile(new File("/Users/yanghongyu/"+file.getOriginalFilename()),
+						file.getBytes()); //2
+				return "ok";
+			} catch (IOException e) {
+				e.printStackTrace();
+				return "wrong";
+			}
+			
+		
+	}}
+
