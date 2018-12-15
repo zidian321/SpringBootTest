@@ -8,10 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TestController {
 @RequestMapping("/hello")
-public ModelAndView hello(String name) {
-	
-	ModelAndView modleAndView = new ModelAndView("welcome");
-	modleAndView.addObject("message", "hello 9999"+name);
+public ModelAndView hello(String url,String transactionID, String requestbody) {
+	System.out.println(transactionID);
+	System.out.println(url);
+	System.out.println(requestbody);
+	ModelAndView modleAndView = new ModelAndView("IMSservice");
+	modleAndView.addObject("requestbody", requestbody);
+	modleAndView.addObject("transactionID", transactionID);
 	return modleAndView;
 }
 }

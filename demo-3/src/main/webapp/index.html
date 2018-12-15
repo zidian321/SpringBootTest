@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" />  
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </head>
 <body>
 <h1>Welcome to my Spring boot website</h1>
@@ -15,8 +14,7 @@
 <form action="/hello">
 <div id = "app" class="form-group">
 <label>用户名：</label>
-<input v-model.lazy="message" type="text" name="name" class="form-control" placeholder="请输入您的用户名">
-<p>你好 {{message}}</p>
+<input  type="text" name="name" class="form-control" placeholder="请输入您的用户名">
 </div>
 
 <div class="form-group">
@@ -31,13 +29,6 @@
 <button type="submit" class="btn btn-default">登录</button>
 </form>
 <script>
-new Vue({
-  el: '#app',
-  data: {
-    message: 'admin',
-	message2: '菜鸟教程\r\nhttp://www.runoob.com'
-  }
-})
 </script>
 </body>
 </html>
